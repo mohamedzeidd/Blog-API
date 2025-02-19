@@ -42,6 +42,10 @@ app.use(
     whitelist: ["numOfLikes", "numOfComments"],
   })
 );
+app.use((req, res, next) => {
+  console.log(`📢 Incoming request: ${req.method} ${req.path}`);
+  next();
+});
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
